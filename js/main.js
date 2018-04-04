@@ -92,7 +92,7 @@ function calMoney() {
     //display total money on totalMoney span tag
     if (totalMoney > 0) {
         spanTien.innerHTML = "";
-        spanTien.innerHTML = parseInt(totalMoney).toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
+        spanTien.innerHTML = parseFloat(totalMoney).toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
     } else if (kmField === "") {
         spanTien.innerHTML = "Bạn chưa đi được cây số nào mà :3";
     }
@@ -118,7 +118,7 @@ function exportBill() {
             } else if (totalKm > 1 && totalKm <= 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "8.000 đ", "8.000 đ");
-                createNewRow("Km 2 -> 19", (totalKm - 1 + " Km"), "12.000 đ", ((totalKm - 1) * 12000) + " đ");
+                createNewRow("Km 2 -> 19", (totalKm - 1 + " Km"), "12.000 đ", ((totalKm - 1) * 12000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 2000) + " đ");
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
@@ -126,9 +126,9 @@ function exportBill() {
             } else if (totalKm > 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "8.000 đ", "8.000 đ");
-                createNewRow("Km 2 -> 19", (19 + " Km"), "12.000 đ", (19 * 12000) + " đ");
-                createNewRow("Km 20 trở lên", (totalKm - 20 + " Km"), "10.000 đ", ((totalKm - 20) * 10000) + " đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 2000) + " đ");
+                createNewRow("Km 2 -> 19", (19 + " Km"), "12.000 đ", (19 * 12000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createNewRow("Km 20 trở lên", (parseFloat(totalKm - 20).toFixed(2) + " Km"), "10.000 đ", parseFloat((totalKm - 20) * 10000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 2000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             }
@@ -138,22 +138,22 @@ function exportBill() {
             if (totalKm <= 1) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (totalKm + " Km"), "9.000 đ", "9.000 đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000) + " đ");
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             } else if (totalKm > 1 && totalKm <= 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "9.000 đ", "9.000 đ");
-                createNewRow("Km 2 -> 19", (19 + " Km"), "14.000 đ", (19 * 14000) + " đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000) + " đ");
+                createNewRow("Km 2 -> 19", (19 + " Km"), "14.000 đ", (19 * 14000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             } else if (totalKm > 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "9.000 đ", "9.000 đ");
-                createNewRow("Km 2 -> 19", (19 + " Km"), "14.000 đ", (19 * 14000) + " đ");
-                createNewRow("Km 20 trở lên", (totalKm - 20 + " Km"), "12.000 đ", ((totalKm - 20) * 12000) + " đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000) + " đ");
+                createNewRow("Km 2 -> 19", (19 + " Km"), "14.000 đ", (19 * 14000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createNewRow("Km 20 trở lên", (parseFloat(totalKm - 20).toFixed(2) + " Km"), "12.000 đ", parseFloat((totalKm - 20) * 12000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 3000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             }
@@ -163,22 +163,22 @@ function exportBill() {
             if (totalKm <= 1) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (totalKm + " Km"), "10.000 đ", "10.000 đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000) + " đ");
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             } else if (totalKm > 1 && totalKm <= 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "10.000 đ", "10.000 đ");
-                createNewRow("Km 2 -> 19", (19 + " Km"), "16.000 đ", (19 * 16000) + " đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000) + " đ");
+                createNewRow("Km 2 -> 19", (19 + " Km"), "16.000 đ", (19 * 16000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             } else if (totalKm > 20) {
                 billTbody.innerHTML = "";
                 createNewRow("Km đầu tiên", (1 + " Km"), "10.000 đ", "10.000 đ");
-                createNewRow("Km 2 -> 19", (19 + " Km"), "16.000 đ", (19 * 16000) + " đ");
-                createNewRow("Km 20 trở lên", (totalKm - 20 + " Km"), "14.000 đ", ((totalKm - 20) * 14000) + " đ");
-                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000) + " đ");
+                createNewRow("Km 2 -> 19", (19 + " Km"), "16.000 đ", (19 * 16000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createNewRow("Km 20 trở lên", (parseFloat(totalKm - 20).toFixed(2) + " Km"), "14.000 đ", parseFloat((totalKm - 20) * 14000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
+                createWaitingRow("Thời gian chờ của tài xế là : " + (minuteWaited * 4000).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }));
                 createWaitingRow("Tổng tiền của quý khách là : " + spanTien.innerHTML);
                 createWaitingRow("Chúc quý khách thượng lộ bình an !");
             }
